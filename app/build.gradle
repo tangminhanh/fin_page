@@ -30,12 +30,28 @@ application {
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 
+javafx {
+    version = "17"
+    modules = [ 'javafx.controls' ]
+}
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+run {
+    jvmArgs = [
+        '--add-exports=java.base/java.lang=ALL-UNNAMED',
+        '--add-exports=javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED',
+        '--add-exports=javafx.graphics/com.sun.javafx.tk=ALL-UNNAMED',
+    ]
+}
+
+
+
 

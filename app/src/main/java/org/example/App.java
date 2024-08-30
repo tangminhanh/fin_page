@@ -19,13 +19,13 @@ import yahoofinance.YahooFinance;
 import yahoofinance.Stock;
 
 
-public class App extends Application {
+public class App extends javafx.application.Application {
     // The URL for the API
     private static final String YAHOO_FINANCE_API = "https://finance.yahoo.com/quote/";
     // Stock symbol for the Dow Jones Industrial Average
     private String symbol = "^DJI";
     // Wait time in milliseconds between queries
-    private int waitTimeMs = 1000;
+    private int waitTimeMs = 10000;
 
     private LineChart<Number, Number> lineChart;
     private XYChart.Series<Number, Number> series;

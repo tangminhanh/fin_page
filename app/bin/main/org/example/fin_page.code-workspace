@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "fin_page",
+			"path": "../../../../../.."
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}
