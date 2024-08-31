@@ -5,13 +5,6 @@
 ## Financial Stock Data Visualizer
 Used Java to build an internal tool visualizing stock market risk in real time.  It creates a line chart showing the monthly closing prices of IBM stock over the past year.
 
-## Project Structure
-The project is structured as follows:
-```bash
-
-fin_page/ ├── app/ │ └── src/ │ └── main/ │ └── java/ │ └── org/ │ └── example/ │ └── App.java └── fin_page.code-workspace
-```
-
 ## Prerequisites
 
 - Java Development Kit (JDK) 8 or higher
