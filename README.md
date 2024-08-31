@@ -34,9 +34,9 @@ gradle build
 ## Running the Application
 
 To run the application, use the following command:
-
+```bash
 gradle run
-
+```
 
 This will start the JavaFX application, displaying a line chart of IBM's stock prices.
 
@@ -46,3 +46,6 @@ To securely handle your API key:
 
 1. Create a file named `config.properties` in the `src/main/resources` directory.
 2. Add your API key to this file:
+```
+alphavantage.api.key=YOUR_API_KEY_HERE
+```
