@@ -32,7 +32,7 @@ gradle run
 ```
 
 This will start the JavaFX application, displaying a line chart of IBM's stock prices.
-
+![Result is shown as](result1.png)
 ## Handling API Keys
 
 To securely handle your API key:

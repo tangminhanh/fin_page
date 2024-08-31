@@ -7,8 +7,11 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Properties;
+
 import javafx.application.Application;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
@@ -17,18 +20,35 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class App extends Application {
+    private static final Properties properties = new Properties();
+    static {
+        try (InputStream input = App.class.getClassLoader().getResourceAsStream("config.properties")) {
+            if (input == null) {
+                System.out.println("Sorry, unable to find config.properties");
+                // return;
+            }
+            properties.load(input);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     private LineChart<Number, Number> lineChart;
     private XYChart.Series<Number, Number> series;
     private String symbol = "IBM";
-    private String apiKey = "ABCDEDF"; // Replace with your actual Alpha Vantage API key
+    private String apiKey = GetValue("alphavantage.api.key");
+
     private int waitTimeMs = 60000; // Wait time in milliseconds (1 minute)
+
+    public static String GetValue(String key) {
+        return properties.getProperty(key);
+    }
 
     @Override
     public void start(Stage stage) {
         stage.setTitle("IBM Stock Data");
         final NumberAxis xAxis = new NumberAxis();
         final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Days");
+        xAxis.setLabel("Month");
         yAxis.setLabel("Stock Price (USD)");
         lineChart = new LineChart<>(xAxis, yAxis);
         lineChart.setTitle("IBM Stock Price (Monthly)");
